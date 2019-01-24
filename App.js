@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Font } from "expo";
 import * as font from "./assets/fonts/Nunito/Nunito-Regular.ttf";
+import { getWeatherByCityName } from "./technical/network";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
   }
   componentDidMount() {
     this.loadAsync();
+    getWeatherByCityName();
   }
 
   loadAsync = async () => {
