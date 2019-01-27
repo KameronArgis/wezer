@@ -1,18 +1,30 @@
+import { Font } from "expo";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Font } from "expo";
-import * as font from "./assets/fonts/Nunito/Nunito-Regular.ttf";
+import { AppContext, APP_CONTEXT } from "./containers/app/context";
+import { fakeForecast } from "./config/forecast";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      fontLoaded: false
+      fontLoaded: false,
+      ...APP_CONTEXT
     };
   }
   componentDidMount() {
     this.loadAsync();
+    this.getForecast();
+  }
+
+  getForecast() {
+    // @todo put the api call here
+
+    this.setState({
+      // @todo: remove this by the return of the api call
+      forecast: fakeForecast
+    });
   }
 
   loadAsync = async () => {
@@ -35,9 +47,11 @@ export default class App extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          Open up App.js to start working on your app!
-        </Text>
+        <AppContext.Provider value={this.state}>
+          <Text style={styles.text}>
+            Open up App.js to start working on your app!
+          </Text>
+        </AppContext.Provider>
       </View>
     );
   }
