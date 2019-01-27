@@ -1,8 +1,11 @@
 import { Font } from "expo";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { AppContext, APP_CONTEXT } from "./containers/app/context";
 import { fakeForecast } from "./config/forecast";
+import { AppContext, APP_CONTEXT } from "./containers/app/context";
+import COLORS from "./style/colors";
+import Header from "./containers/header";
+import Layout from "./components/layout";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -29,7 +32,8 @@ export default class App extends React.Component {
 
   loadAsync = async () => {
     await Font.loadAsync({
-      nunito: require("./assets/fonts/Nunito/Nunito-Regular.ttf")
+      nunito: require("./assets/fonts/Nunito/Nunito-Regular.ttf"),
+      nunitoBold: require("./assets/fonts/Nunito/Nunito-Bold.ttf")
     });
 
     this.setState({
@@ -46,11 +50,21 @@ export default class App extends React.Component {
       );
     }
     return (
-      <View style={styles.container}>
+      <View
+        style={[
+          styles.container,
+          { backgroundColor: this.state.theme.background }
+        ]}
+      >
         <AppContext.Provider value={this.state}>
-          <Text style={styles.text}>
-            Open up App.js to start working on your app!
-          </Text>
+          {/* @todo replace by fake stub data */}
+          <Layout>
+            <Header
+              city="Amsterdam"
+              date="Friday, 4th January 2019"
+              onClickOptions={() => console.log("click options")}
+            />
+          </Layout>
         </AppContext.Provider>
       </View>
     );
@@ -59,12 +73,8 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  text: {
-    fontFamily: "nunito"
+    width: "100%",
+    height: "100%",
+    backgroundColor: COLORS.white
   }
 });

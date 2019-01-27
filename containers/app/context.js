@@ -1,11 +1,12 @@
 import * as React from "react";
+import COLORS from "../../style/colors";
 
 const APP_THEME = {
   day: {
-    background: "#FA9A4B"
+    background: COLORS.orange
   },
   night: {
-    backgound: "#4F3021"
+    backgound: COLORS.black
   }
 };
 
