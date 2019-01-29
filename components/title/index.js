@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     color: COLORS.white,
     fontSize: 42,
-    fontFamily: "nunitoBold"
+    fontFamily: "robotoBold"
   }
 });
 

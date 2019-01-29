@@ -1,32 +1,54 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import COLORS from "../../style/colors";
 import { SubTitle } from "../../components/subtitle";
 
-function DayForecast({ temperature, iconType, type }) {
+function DayForecast({ temperature, iconType, weatherType }) {
   return (
     <View style={styles.container}>
-      <View style={styles.icon}>{iconType}</View>
-      <Text style={styles.temperature}>{temperature}°</Text>
-      <SubTitle style={styles.icon}>{type}</SubTitle>
+      <Text style={styles.icon}>{iconType}</Text>
+      <View style={styles.textContainer}>
+        <View style={styles.temperatureContainer}>
+          <Text style={styles.temperature}>{temperature}</Text>
+          <Text style={styles.celsius}>°</Text>
+        </View>
+        <SubTitle style={styles.text}>{weatherType}</SubTitle>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingVertical: 30,
     display: "flex",
+    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center"
   },
-  icon: {},
+  textContainer: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "column"
+  },
+  temperatureContainer: {
+    display: "flex",
+    flexDirection: "row"
+  },
   temperature: {
-    fonsSize: 70,
+    fontSize: 150,
     color: COLORS.white
   },
   text: {
-    fonsize: 14
+    fontSize: 18,
+    textAlign: "center",
+    marginTop: -10
+  },
+  celsius: {
+    color: COLORS.white,
+    fontSize: 50,
+    marginTop: 20
   }
 });
 

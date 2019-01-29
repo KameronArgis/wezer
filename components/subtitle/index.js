@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   title: {
     color: COLORS.brown,
     fontSize: 18,
-    fontFamily: "nunito"
+    fontFamily: "roboto"
   }
 });
 
