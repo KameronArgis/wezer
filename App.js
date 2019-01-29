@@ -67,7 +67,7 @@ export default class App extends React.Component {
             />
             <DayForecast
               temperature="12"
-              iconType="[cloud]"
+              iconType="sun_cloud"
               weatherType="Rather cloudy"
             />
           </Layout>

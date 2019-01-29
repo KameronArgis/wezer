@@ -1,12 +1,13 @@
 import * as React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import COLORS from "../../style/colors";
+import { StyleSheet, Text, View } from "react-native";
 import { SubTitle } from "../../components/subtitle";
+import { WEATHER_TYPE_MAP } from "../../config/forecast";
+import COLORS from "../../style/colors";
 
 function DayForecast({ temperature, iconType, weatherType }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.icon}>{iconType}</Text>
+      <View style={styles.icon}>{WEATHER_TYPE_MAP[iconType]}</View>
       <View style={styles.textContainer}>
         <View style={styles.temperatureContainer}>
           <Text style={styles.temperature}>{temperature}</Text>
@@ -49,6 +50,9 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 50,
     marginTop: 20
+  },
+  icon: {
+    marginBottom: -40
   }
 });
 
