@@ -6,6 +6,7 @@ import { AppContext, APP_CONTEXT } from "./containers/app/context";
 import COLORS from "./style/colors";
 import Header from "./containers/header";
 import Layout from "./components/layout";
+import DayForecast from "./containers/day-forecast";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -32,8 +33,8 @@ export default class App extends React.Component {
 
   loadAsync = async () => {
     await Font.loadAsync({
-      nunito: require("./assets/fonts/Nunito/Nunito-Regular.ttf"),
-      nunitoBold: require("./assets/fonts/Nunito/Nunito-Bold.ttf")
+      roboto: require("./assets/fonts/Roboto/Roboto-Regular.ttf"),
+      robotoBold: require("./assets/fonts/Roboto/Roboto-Bold.ttf")
     });
 
     this.setState({
@@ -63,6 +64,11 @@ export default class App extends React.Component {
               city="Amsterdam"
               date="Friday, 4th January 2019"
               onClickOptions={() => console.log("click options")}
+            />
+            <DayForecast
+              temperature="12"
+              iconType="sun_cloud"
+              weatherType="Rather cloudy"
             />
           </Layout>
         </AppContext.Provider>

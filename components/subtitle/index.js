@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
   title: {
     color: COLORS.brown,
     fontSize: 18,
-    fontFamily: "nunito"
+    fontFamily: "roboto"
   }
 });
 
-export function SubTitle({ children }) {
-  return <Text style={styles.title}>{children}</Text>;
+export function SubTitle({ children, style }) {
+  return <Text style={[styles.title, style]}>{children}</Text>;
 }
