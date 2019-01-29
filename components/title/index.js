@@ -4,6 +4,7 @@ import COLORS from "../../style/colors";
 
 const styles = StyleSheet.create({
   title: {
+    marginTop: 4,
     color: COLORS.white,
     fontSize: 42,
     fontFamily: "nunitoBold"
