@@ -3,11 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 import { SubTitle } from "../../components/subtitle";
 import { WEATHER_TYPE_MAP } from "../../config/forecast";
 import COLORS from "../../style/colors";
+import WeatherIcon from "../../components/weather-icon";
 
 function DayForecast({ temperature, iconType, weatherType }) {
   return (
     <View style={styles.container}>
-      <View style={styles.icon}>{WEATHER_TYPE_MAP[iconType]}</View>
+      <View style={styles.icon}>
+        <WeatherIcon type={iconType} />
+      </View>
       <View style={styles.textContainer}>
         <View style={styles.temperatureContainer}>
           <Text style={styles.temperature}>{temperature}</Text>
@@ -23,14 +26,12 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 30,
     display: "flex",
-    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center"
   },
   textContainer: {
     display: "flex",
-    flex: 1,
     flexDirection: "column"
   },
   temperatureContainer: {

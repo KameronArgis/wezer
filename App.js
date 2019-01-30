@@ -7,6 +7,7 @@ import COLORS from "./style/colors";
 import Header from "./containers/header";
 import Layout from "./components/layout";
 import DayForecast from "./containers/day-forecast";
+import WeekForecast from "./containers/week-forecast";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -70,6 +71,7 @@ export default class App extends React.Component {
               iconType="sun_cloud"
               weatherType="Rather cloudy"
             />
+            <WeekForecast forecast={fakeForecast} />
           </Layout>
         </AppContext.Provider>
       </View>

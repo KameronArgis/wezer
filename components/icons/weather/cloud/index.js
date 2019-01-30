@@ -2,7 +2,7 @@ import * as React from "react";
 import { Svg } from "expo";
 
 const Cloud = props => (
-  <Svg width={100} height={100} {...props} fill="#FFFFFF">
+  <Svg width={50} height={50} viewBox="0 0 100 100" {...props} fill="#FFFFFF">
     <Svg.Path
       fillRule="evenodd"
       clipRule="evenodd"
