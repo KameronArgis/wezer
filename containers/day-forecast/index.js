@@ -9,7 +9,7 @@ function DayForecast({ temperature, iconType, weatherType }) {
   return (
     <View style={styles.container}>
       <View style={styles.icon}>
-        <WeatherIcon type={iconType} />
+        <WeatherIcon type={iconType} height={100} width={100} />
       </View>
       <View style={styles.textContainer}>
         <View style={styles.temperatureContainer}>
