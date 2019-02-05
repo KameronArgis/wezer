@@ -1,9 +1,8 @@
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SubTitle } from "../../components/subtitle";
-import { WEATHER_TYPE_MAP } from "../../config/forecast";
-import COLORS from "../../style/colors";
 import WeatherIcon from "../../components/weather-icon";
+import COLORS from "../../style/colors";
 
 function DayForecast({ temperature, iconType, weatherType }) {
   return (
