@@ -1,13 +1,14 @@
 import { Font } from "expo";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import Button from "./components/button";
+import Layout from "./components/layout";
 import { fakeForecast } from "./config/forecast";
 import { AppContext, APP_CONTEXT } from "./containers/app/context";
-import COLORS from "./style/colors";
-import Header from "./containers/header";
-import Layout from "./components/layout";
 import DayForecast from "./containers/day-forecast";
+import Header from "./containers/header";
 import WeekForecast from "./containers/week-forecast";
+import COLORS from "./style/colors";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -59,7 +60,6 @@ export default class App extends React.Component {
         ]}
       >
         <AppContext.Provider value={this.state}>
-          {/* @todo replace by fake stub data */}
           <Layout>
             <Header
               city="Amsterdam"
@@ -72,6 +72,9 @@ export default class App extends React.Component {
               weatherType="Rather cloudy"
             />
             <WeekForecast forecast={fakeForecast} />
+            <View style={styles.buttonContainer}>
+              <Button label="Add city" />
+            </View>
           </Layout>
         </AppContext.Provider>
       </View>
@@ -84,5 +87,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     backgroundColor: COLORS.white
+  },
+  buttonContainer: {
+    paddingHorizontal: 12
   }
 });

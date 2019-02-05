@@ -5,6 +5,8 @@ import SunClound from "../icons/weather/sun-cloud";
 import Cloud from "../icons/weather/cloud";
 import Thunder from "../icons/weather/thunder";
 
+
+//@todo : this component should be the index in ../icons/
 function WeatherIcon({ type, ...props }) {
   switch (type) {
     case "sun":
